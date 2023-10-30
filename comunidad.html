@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CocaCola</title> 
+    <style>
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="js/comunidad.js" defer></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-black"><!--Menu-->
+    <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Menu</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="comunidad.html">Comunidad</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+        </li>
+        <li class="nav-item">
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Bebidas
+            </a>
+            <ul class="dropdown-menu">
+            <li><a class="dropdown-item bg-black" href="botellas.html">Botellas</a></li>
+            <li><a class="dropdown-item" href="latas.html">Latas</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Marcas
+            </a>
+            <ul class="dropdown-menu bg-black">
+            <li><a class="dropdown-item" href="spite.html">Sprite</a></li>
+            <li><a class="dropdown-item" href="fanta.html">Fanta</a></li>
+            <li><a class="dropdown-item" href="schweppes.html">Schweppes Premium Drinks</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+        </li>
+        </ul>
+    </div>
+    </div>
+</nav>
+
+<div class="container" data-bs-toggle="modal" data-bs-target="#agregarModal">
+    <button class="btn btn-primary">
+    Agregar 
+    </button>
+</div>
+
+<main class="container" id="contenedorComunidad">
+
+</main>
+
+
+<!--Modal Agregar Comunidad-->
+<div class="modal fade" id="agregarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <form id="agregarForm" onsubmit="return false;">
+            <input type="hidden" id="txtId">
+            <label for="txtcoca_cola_favorita" class="form-label">Coca-Cola Favorita:</label>
+            <input type="text" id="txtcoca_cola_favorita" class="form-control mb-3" required>
+            <label for="txtde">De:</label>
+            <input type="text" id="txtde" class="form-control mb-3" required>
+            <label for="txtimgUrl">Imagen Url:</label>
+            <input type="text" id="txtimgUrl" class="form-control mb-3">
+            <input type="submit" value="Enviar" class="form-control btn btn-primary" onclick="appComunidad.agregarComunidad();">
+        </form>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+/*Carrucel*/
+#carouselExample {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.carousel-inner {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.carousel-item img {
+    max-width: 100%; /* Ajuste el ancho de las imágenes al 100% */
+    height: 500px; /* Esta es la altura de las IMG */
+}
+
+/* FLECHAS GUIAS */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #FF0000;
+}
+
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: #00ff0000; /* FONDO DE LAS FLECHAS*/
+}
+
+/* texto debajo de carrusel */
+
+#cTextmain{
+    margin-top: 4rem;
+    margin-left: 2rem;
+    height: 200px;
+    width: 635px;
+}
+
+.info-text {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/*Footer*/
+.footer {
+    margin-top: 300px;
+    background-color: #000000;
+    padding: 40px 0;
+    position: absolute;
+    top: 1200px;
+    width: 100%;
+}
+
+.footer h4 {
+    color: #ffffff;
+}
+
+.footer p {
+    color: #ffffff;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+
+/*Database Botella*/
+#card-image {
+    height: 450px;
+}
+
+#card-bdy {
+    height: 80px;
+}
+
+#card-main {
+    box-sizing: content-box;
+    box-shadow: 2px 2px 2px rgba(77, 77, 77, 0.2);
+}
+
+#contenedorBotella {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/*Database Latas*/
+#card-img {
+    height: 450px;
+}
+
+#card-body {
+    height: 80px;
+}
+
+#card-min {
+    box-sizing: content-box;
+    box-shadow: 2px 2px 2px rgba(77, 77, 77, 0.2);
+}
+
+#contenedorLatas {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/*Database Comunidad*/
+#card-im {
+    height: 450px;
+}
+
+#card-ma {
+    box-sizing: content-box;
+    box-shadow: 2px 2px 2px rgba(77, 77, 77, 0.2);
+}
+
+#card-bdys {
+    height: 80px;
+}
+
+#contenedorComunidad {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+/*Menu*/
+.navbar a{
+    color: white;
+}
+
+.navbar a:hover{
+    color: grey;
+}
+
+.dropdown-item a{
+    color: white;
+}
+
+.dropdown-item a:hover{
+    color: grey;
+}
+
+
+/*Sprite y Fanta*/
+.car {
+    margin-top: 5%;
+    margin-left: 30%;
+}
+
+.card-title-fan {
+    color: #FF8200;
+    font-size: 36px;
+}
+
+.card-title-spri {
+    color: #008000;
+    font-size: 36px;
+}
+
+
+
+/*Schweppes*/
+.card-shc {
+    margin-top: -30%;
+    margin-left: 15%;
+}
+
+.carta {
+    margin-top: 5%;
+    margin-left: 40%;
+}
+
+.carta- {
+    margin-top: 15%;
+    margin-left: 40%;
+}
+
+
+/*Texto final*/
+.letra {
+    text-align: center;
+}
+
+.letra-body {
+    font-size: 36px;
+    font-weight: bold;
+}
