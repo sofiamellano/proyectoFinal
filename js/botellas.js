@@ -25,7 +25,7 @@ const appBotellas = {
             }
             console.log(contenidoHTML);
             contenedor.innerHTML=contenidoHTML;
-        })
+        });
     }
 }
 appBotellas.listarBotellas();

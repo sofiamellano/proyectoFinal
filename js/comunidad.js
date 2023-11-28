@@ -1,15 +1,15 @@
-const urlComunidad="https://cocacola-0733.restdb.io/rest/comunidad?apikey=6538195049f7411e08b42cbd";
+const urlComunidad = "https://cocacola-0733.restdb.io/rest/comunidad?apikey=6538195049f7411e08b42cbd";
 
 const appComunidad = {
-    listarComunidad: ()=>{
-        const contenedor=document.getElementById("contenedorComunidad");
+    listarComunidad: () => {
+        const contenedor = document.getElementById("contenedorComunidad");
 
         let contenidoHTML = "";
 
-        fetch(urlComunidad).then(respuesta=>respuesta.json()).then(comunidad=>{
+        fetch(urlComunidad).then(respuesta => respuesta.json()).then(comunidad => {
             console.log(comunidad);
             for (const comun of comunidad) {
-                contenidoHTML+=`
+                contenidoHTML += `
                 <div class="row">
                 <div class="col">
                     <div class="card" id="card-ma">
@@ -27,54 +27,45 @@ const appComunidad = {
             `
             }
             console.log(contenidoHTML);
-            contenedor.innerHTML=contenidoHTML;
+            contenedor.innerHTML = contenidoHTML;
         })
     },
-
-
-    agregarComunidad:()=>{
+    agregarComunidad: () =>{
         const id = document.getElementById('txtId');
         const titulo = document.getElementById('txtcoca_cola_favorita');
         const autor = document.getElementById('txtde');
-        const image = document.getElementById('txtimgUrl');
-        const buton = document.getElementById('buttonClose');
+        const img = document.getElementById('txtimgUrl');
+        const boton = document.getElementById('buttonClose');
 
-        let urlApi='';
-        let metodoHttp='';
-        
-        if(titulo.value==='')
-        {
-            urlApi="https://cocacola-0733.restdb.io/rest/comunidad?apikey=6538195049f7411e08b42cbd";
-            metodoHttp='POST';
-            
-        }
-        else
-        {
-            urlApi=`https://cocacola-0733.restdb.io/rest/comunidad/${id.value}?apikey=6538195049f7411e08b42cbd`;
-            metodoHttp='PUT';
-        }
-
-        const nuevaComunidad ={
+        const nuevaComunidad = {
             "coca_cola_favorita": txtcoca_cola_favorita.value,
             "de": txtde.value,
             "imgUrl": txtimgUrl.value
-        };
+        }
 
+        metodoHttp='';
+        urlApi = '';
+        
+        if (titulo.value==='') {
+            metodoHttp = "POST";
+            urlApi = urlComunidad;
+        }else{
+            metodoHttp = "PUT"
+            urlApi = `https://cocacola-0733.restdb.io/rest/comunidad/${id.value}?apikey=6538195049f7411e08b42cbd`;
+        }
 
         fetch(urlApi, {
             method: metodoHttp,
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type' : 'application/json'
             },
             body: JSON.stringify(nuevaComunidad)
+        }).then((response) => {
+            console.log(response)
         })
-        .then(response =>{
-            console.log(response);
-            window.location.href="comunidad.html";
-        });
     },
-
-    eliminarComunidad:(idAEliminar,nombreABorrar)=>{
+    
+    eliminarComunidad: (idAEliminar, nombreABorrar) => {
         Swal.fire({
             title: `Seguro que quiere borrar la publicación de ${nombreABorrar}?`,
             text: "No vas a poder cambiar esta operacion",
@@ -87,52 +78,52 @@ const appComunidad = {
         }).then((result) => {
             if (result.isConfirmed) {
                 if (result.isConfirmed) {
-                    const urlApi=`https://cocacola-0733.restdb.io/rest/comunidad/${idAEliminar}?apikey=6538195049f7411e08b42cbd`
-                fetch(urlApi, {
-                method: 'DELETE'
-                })
-                .then(response => {
-                    console.log(response);
-                    return appComunidad.listarComunidad();
-                }).then(response =>{
-                    Swal.fire(
-                    'Eliminado!',
-                    `La publicacion ${nombreABorrar} fue borrado .`,
-                    'satisfactoriamente'
-                    )
-                });
+                    const urlApi = `https://cocacola-0733.restdb.io/rest/comunidad/${idAEliminar}?apikey=6538195049f7411e08b42cbd`
+                    fetch(urlApi, {
+                        method: 'DELETE'
+                    })
+                        .then(response => {
+                            console.log(response);
+                            return appComunidad.listarComunidad();
+                        }).then(response => {
+                            Swal.fire(
+                                'Eliminado!',
+                                `La publicacion ${nombreABorrar} fue borrado .`,
+                                'satisfactoriamente'
+                            )
+                        });
                 }
-            Swal.fire(
-                'Borrado',
-                'Se borro el libro.',
-                'success'
-            )
+                Swal.fire(
+                    'Borrado',
+                    'Se borro el libro.',
+                    'success'
+                )
             }
         })
     },
 
 
-    editarComunidad:(idComunidadAEditar)=>{
-        const urlApi=`https://cocacola-0733.restdb.io/rest/comunidad/${idComunidadAEditar}?apikey=6538195049f7411e08b42cbd`;
-        fetch(urlApi).then(res => res.json()).then(comun =>{
-            document.getElementById("txtId").value=comun._id;
-            document.getElementById("txtcoca_cola_favorita").value=comun.coca_cola_favorita;
-            document.getElementById("txtde").value=comun.de;
-            document.getElementById("txtimgUrl").value=comun.imgUrl;
-            document.getElementById("botonCambiar").value='Editar'; // Cambia el boton a editar.
+    editarComunidad: (idComunidadAEditar) => {
+        const urlApi = `https://cocacola-0733.restdb.io/rest/comunidad/${idComunidadAEditar}?apikey=6538195049f7411e08b42cbd`;
+        fetch(urlApi).then(res => res.json()).then(comun => {
+            document.getElementById("txtId").value = comun._id;
+            document.getElementById("txtcoca_cola_favorita").value = comun.coca_cola_favorita;
+            document.getElementById("txtde").value = comun.de;
+            document.getElementById("txtimgUrl").value = comun.imgUrl;
+            document.getElementById("botonCambiar").value = 'Editar'; // Cambia el boton a editar.
 
-            const ventanaEditar=document.getElementById('agregarEditarModal');
-            let ventana=new bootstrap.Modal(ventanaEditar);
+            const ventanaEditar = document.getElementById('agregarEditarModal');
+            let ventana = new bootstrap.Modal(ventanaEditar);
             ventana.show();
         });
     },
-    
-    cerrarBoton:()=>{
-        document.getElementById("txtId").value='';
-        document.getElementById("txtcoca_cola_favorita").value='';
-        document.getElementById("txtde").value='';
-        document.getElementById("txtimgUrl").value='';
-        document.getElementById("botonCambiar").value='Añadir';
+
+    cerrarBoton: () => {
+        document.getElementById("txtId").value = '';
+        document.getElementById("txtcoca_cola_favorita").value = '';
+        document.getElementById("txtde").value = '';
+        document.getElementById("txtimgUrl").value = '';
+        document.getElementById("botonCambiar").value = 'Añadir';
     }
 }
 appComunidad.listarComunidad();
