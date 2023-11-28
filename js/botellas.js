@@ -16,7 +16,7 @@ const appBotellas = {
                         <img src="${botella.imgUrl}" class="card-img-top" id="card-image">
                             <div class=""card-body" id="card-bdy"> 
                                 <h5 class="card-title">${botella.tipo}</h5>
-                                <h8 class="card-text">Lts-ml:${botella.Lts_ml}</8>
+                                <h8 class="card-text">Lts-ml:${botella.Lts_ml}</h8>
                             </div>
                         </div>
                     </div>
