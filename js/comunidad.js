@@ -1,5 +1,6 @@
 const urlComunidad = "https://cocacola-0733.restdb.io/rest/comunidad?apikey=6538195049f7411e08b42cbd";
 
+
 const appComunidad = {
     listarComunidad: () => {
         const contenedor = document.getElementById("contenedorComunidad");
@@ -46,7 +47,7 @@ const appComunidad = {
         metodoHttp='';
         urlApi = '';
         
-        if (titulo.value==='') {
+        if (txtId.value==='') {
             metodoHttp = "POST";
             urlApi = urlComunidad;
         }else{
@@ -62,6 +63,7 @@ const appComunidad = {
             body: JSON.stringify(nuevaComunidad)
         }).then((response) => {
             console.log(response)
+            window.location.href="comunidad.html";
         })
     },
     
